@@ -22,7 +22,7 @@ init_db()
 
 @app.route('/')
 def home_page():
-    return '<h2> Minha page aprendendo com bastante Fé e Alegria</h2>'
+    return '<h2> Criando minha Primeira API</h2>'
 
 
 @app.route('/doar', methods=['POST'])
@@ -39,7 +39,7 @@ def doar():
         return jsonify({'erro': 'Todos os campos são obrigatorios'}), 400
 
     with sqlite3.connect('database.db') as conn:
-        conn.execute(f""" INSERT INTO livros (titulo, categoria, autor, imagem_url)
+        conn.execute(""" INSERT INTO livros (titulo, categoria, autor, imagem_url)
                      VALUES (?,?,?,?)
                      """, (titulo, categoria, autor, imagem_url))
 
